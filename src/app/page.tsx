@@ -23,16 +23,18 @@ export default function Home() {
   const t = translations[lang];
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen text-center p-6">
-      <h1 className="text-3xl md:text-5xl font-bold text-blue-800 mb-6">
+    <main className="flex flex-col items-center justify-center min-h-screen text-center px-4 py-12 sm:px-6 lg:px-8">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-6">
         {t.welcome}
       </h1>
-      <p className="text-lg md:text-xl text-gray-700 max-w-2xl">
+
+      <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mb-6">
         {t.middleText}
       </p>
+
       <button
         onClick={() => router.push("/medicamentos")}
-        className="mt-8 px-8 py-4 bg-blue-600 text-white text-lg rounded-full hover:bg-blue-700 transition-all"
+        className="mt-4 sm:mt-6 px-6 sm:px-8 py-3 sm:py-4 bg-blue-800 text-white text-base sm:text-lg rounded-full hover:bg-blue-700 transition-all"
       >
         {t.middleButton}
       </button>

@@ -93,7 +93,7 @@ export default function MedicamentosPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
         {loading ? (
-          <p className="text-center text-blue-600 text-lg mt-10">
+          <p className="text-center text-blue-800 text-lg mt-10">
             Cargando medicamentos...
           </p>
         ) : medicamentos.length > 0 ? (

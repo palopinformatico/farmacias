@@ -29,7 +29,7 @@ export default function MedicamentosCard({ medicamento }: { medicamento: any }) 
       <h2 className="text-xl font-bold text-blue-700">{medicamento.nombre}</h2>
       <p className="text-gray-600 mt-2">{t.price}: ${medicamento.precio}</p>
       <p className="text-gray-600">{t.drugstore}: {medicamento.tienda}</p>
-      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      <button className="mt-4 bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">
         Guardar en frecuentes
       </button>
     </div>

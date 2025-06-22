@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
+import { register } from 'module';
 
 export default function LoginForm() {
   const [email, setEmail] = useState<string>("");
@@ -61,43 +62,59 @@ export default function LoginForm() {
       emailPlaceholder: 'Correo electrónico',
       passwordPlaceholder: 'Contraseña',
       button: 'Ingresar',
+      noCount: '¿No tienes una cuenta?',
+      register: 'Regístrate'
     },
     en: {
       title: 'Log in',
       emailPlaceholder: 'Email',
       passwordPlaceholder: 'Password',
       button: 'Enter',
+      noCount: "Don't have a count?",
+      register: 'Regíster'
     },
   };
 
   const t = translations[lang];
 
   return (
-    <form onSubmit={handleLogin} className="flex flex-col gap-4 max-w-sm mx-auto mt-10">
-      <h2 className="text-xl font-bold">{t.title}</h2>
-      <input
-        type="email"
-        placeholder={t.emailPlaceholder}
-        className="border px-4 py-2 rounded"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder={t.passwordPlaceholder}
-        className="border px-4 py-2 rounded"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button
-        type="submit"
-        disabled={loading}
-        className="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
-      >
-        {loading ? "Cargando..." : t.button}
-      </button>
-    </form>
+    <main className="p-6">
+      <form onSubmit={handleLogin} className="flex flex-col gap-4 max-w-sm mx-auto mt-10">
+        <h2 className="text-xl font-bold">{t.title}</h2>
+        <input
+          type="email"
+          placeholder={t.emailPlaceholder}
+          className="border px-4 py-2 rounded"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder={t.passwordPlaceholder}
+          className="border px-4 py-2 rounded"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
+        >
+          {loading ? "Cargando..." : t.button}
+        </button>
+
+        <p className="text-center text-sm mt-2">
+          {t.noCount}{" "}
+          <span
+            className="text-blue-700 cursor-pointer hover:underline"
+            onClick={() => router.push("/register")}
+          >
+            {t.register}
+          </span>
+        </p>
+      </form>
+    </main>
   );
 }

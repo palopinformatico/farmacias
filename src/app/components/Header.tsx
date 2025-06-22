@@ -15,12 +15,14 @@ export default function Header() {
       login: "Login",
       language: "Idioma",
       medications: "Mis medicamentos",
+      graph: "Grafico precios",
     },
     en: {
       search: "Search remedies",
       login: "Login",
       language: "Language",
       medications: "My medications",
+      graph: "Prices graph",
     },
   };
 
@@ -56,6 +58,9 @@ export default function Header() {
           <button onClick={() => router.push("/frecuentes")} className="hover:underline">
             {t.medications}
           </button>
+          <button onClick={() => router.push("/MedicinePriceChart")} className="hover:underline">
+            {t.graph}
+          </button>
           <button
             onClick={() => {
               localStorage.removeItem("session");
@@ -84,6 +89,9 @@ export default function Header() {
           </button>
           <button onClick={() => router.push("/frecuentes")} className="hover:underline">
             {t.medications}
+          </button>
+          <button onClick={() => router.push("/MedicinePriceChart")} className="hover:underline">
+            {t.graph}
           </button>
           <button
             onClick={() => {

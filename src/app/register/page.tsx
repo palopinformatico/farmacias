@@ -14,7 +14,7 @@ export default function RegisterPage() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3001/api/auth/register", {
+      const res = await fetch("http://${process.env.REACT_APP_API_BASE_URL}/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

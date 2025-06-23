@@ -3,11 +3,18 @@
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import NotificationBell from '../components/NotificationBell';
 
 export default function Header() {
   const router = useRouter();
   const { lang, setLang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [notifications, setNotifications] = useState(3);
+console.log("Header loaded for test");
+  const handleMarkAsRead = () => {
+    setNotifications(0);
+    router.push("/notifications");
+  };
 
   const translations = {
     es: {
@@ -16,6 +23,7 @@ export default function Header() {
       language: "Idioma",
       medications: "Mis medicamentos",
       graph: "Grafico precios",
+      notifications: "Notificaciones",
     },
     en: {
       search: "Search remedies",
@@ -23,6 +31,7 @@ export default function Header() {
       language: "Language",
       medications: "My medications",
       graph: "Prices graph",
+      notifications: "Notifications",
     },
   };
 
@@ -70,6 +79,9 @@ export default function Header() {
           >
             {t.login}
           </button>
+          <button onClick={handleMarkAsRead} className="hover:underline">
+            <NotificationBell notifications={notifications} />
+          </button>
           <select
             value={lang}
             onChange={(e) => setLang(e.target.value as "es" | "en")}
@@ -101,6 +113,12 @@ export default function Header() {
             className="hover:underline"
           >
             {t.login}
+          </button>
+          <button onClick={() => handleMarkAsRead} className="hover:underline">
+            <div>
+              <NotificationBell notifications={notifications}
+              />
+            </div>
           </button>
           <select
             value={lang}
